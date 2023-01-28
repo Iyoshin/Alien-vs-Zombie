@@ -93,30 +93,17 @@ void alienMoveUp(Alien al,  Board &bd, Zombie zo)
             cout << "Health found" << endl;
             al.alienGainHealth();
             pf::Pause();
-
-            al.moveUp(bd);
-            showBoard(bd, al, zo);
-            cout << "Alien gained 20 health!" << endl; 
-            pf::Pause();
         }
         if (bd.pod(x, y - 1))
         {
             showBoard(bd, al, zo);
             cout << "Pod found" << endl;
             pf::Pause();
-
-            al.moveUp(bd);
-            showBoard(bd, al, zo);
-            pf::Pause();
         }
         if (bd.gridIsEmpty(x, y - 1))
         {
             showBoard(bd, al, zo);
             cout << "Empty Space found." << endl;
-            pf::Pause();
-
-            al.moveUp(bd);
-            showBoard(bd, al, zo);
             pf::Pause();
         }
         if (bd.arrowLeft(x, y - 1))
@@ -183,7 +170,9 @@ void alienMoveUp(Alien al,  Board &bd, Zombie zo)
         
         
        
- 
+        al.moveUp(bd);
+        showBoard(bd, al, zo);
+        pf::Pause();
     }
 }
 
@@ -220,31 +209,17 @@ void alienMoveDown(Alien al, Board &bd, Zombie zo)
             cout << "Health found" << endl;
             al.alienGainHealth();
             pf::Pause();
-
-            al.moveDown(bd);
-            showBoard(bd, al, zo);
-            cout << "Alien gained 20 health!" << endl; 
-            pf::Pause();
-            
         }
         if (bd.pod(x, y + 1))
         {
             showBoard(bd, al, zo);
             cout << "Pod found" << endl;
             pf::Pause();
-
-            al.moveDown(bd);
-            showBoard(bd, al, zo);
-            pf::Pause();
         }
         if (bd.gridIsEmpty(x, y + 1))
         {
             showBoard(bd, al, zo);
             cout << "Empty Space found." << endl;
-            pf::Pause();
-
-            al.moveDown(bd);
-            showBoard(bd, al, zo);
             pf::Pause();
         }
         if (bd.arrowLeft(x, y + 1))
@@ -310,7 +285,9 @@ void alienMoveDown(Alien al, Board &bd, Zombie zo)
         
         
        
-
+        al.moveDown(bd);
+        showBoard(bd, al, zo);
+        pf::Pause();
     }
 
 }
@@ -348,31 +325,17 @@ void alienMoveLeft(Alien al, Board &bd, Zombie zo)
             cout << "Health found" << endl;
             al.alienGainHealth();
             pf::Pause();
-
-            al.moveLeft(bd);
-            showBoard(bd, al, zo);
-            cout << "Alien gained 20 health!" << endl; 
-            pf::Pause();
-            
         }
         if (bd.pod(x - 1, y))
         {
             showBoard(bd, al, zo);
             cout << "Pod found" << endl;
             pf::Pause();
-
-            al.moveLeft(bd);
-            showBoard(bd, al, zo);
-            pf::Pause();
         }
         if (bd.gridIsEmpty(x - 1, y))
         {
             showBoard(bd, al, zo);
             cout << "Empty Space found." << endl;
-            pf::Pause();
-
-            al.moveLeft(bd);
-            showBoard(bd, al, zo);
             pf::Pause();
         }
         if (bd.arrowLeft(x - 1, y))
@@ -438,7 +401,9 @@ void alienMoveLeft(Alien al, Board &bd, Zombie zo)
        
         
        
-       
+        al.moveLeft(bd);
+        showBoard(bd, al, zo);
+        pf::Pause();
     }
 
 }
@@ -464,7 +429,6 @@ void alienMoveRight(Alien al, Board &bd, Zombie zo)
             showBoard(bd, al, zo);
             cout << "rock found" << endl;
             pf::Pause();
-
             showBoard(bd, al, zo);
             bd.rockObj(x + 1, y);
             pf::Pause();
@@ -477,31 +441,17 @@ void alienMoveRight(Alien al, Board &bd, Zombie zo)
             cout << "Health found" << endl;
             al.alienGainHealth();
             pf::Pause();
-
-            al.moveRight(bd);
-            showBoard(bd, al, zo);
-            cout << "Alien gained 20 health!" << endl; 
-            pf::Pause();
-            
         }
         if (bd.pod(x + 1, y))
         {
             showBoard(bd, al, zo);
             cout << "Pod found" << endl;
             pf::Pause();
-
-            al.moveRight(bd);
-            showBoard(bd, al, zo); 
-            pf::Pause();
         }
         if (bd.gridIsEmpty(x + 1, y))
         {
             showBoard(bd, al, zo);
             cout << "Empty Space found." << endl;
-            pf::Pause();
-
-            al.moveRight(bd);
-            showBoard(bd, al, zo); 
             pf::Pause();
         }
         if (bd.arrowLeft(x + 1, y))
@@ -566,7 +516,9 @@ void alienMoveRight(Alien al, Board &bd, Zombie zo)
         }
    
        
-        
+        al.moveRight(bd);
+        showBoard(bd, al, zo);
+        pf::Pause();
     }
 }
 
@@ -653,6 +605,15 @@ void alienTurn(Alien al, Board &bd, Zombie zo, int x, int y)
 
         if (command == "quit")
         {
+            cout << "Are you sure? (y/n) ";
+            cin >> ans;
+
+            if (ans == y)
+            {
+                cout << "Goodbye!" << endl;
+                quit = true;
+                break;
+            }
         }
 
     } while (!turnEnd);
