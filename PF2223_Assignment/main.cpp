@@ -653,15 +653,6 @@ void alienTurn(Alien al, Board &bd, Zombie zo, int x, int y)
 
         if (command == "quit")
         {
-            cout << "Are you sure? (y/n) ";
-            cin >> ans;
-
-            if (ans == y)
-            {
-                cout << "Goodbye!" << endl;
-                quit = true;
-                break;
-            }
         }
 
     } while (!turnEnd);
