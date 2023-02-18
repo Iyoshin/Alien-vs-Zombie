@@ -20,7 +20,7 @@ List all the features completed.
 8. Can generate multiple zombie according to user input, each with randomly generated stats.
 9. Combat system.
 10. Exit function that will quit the program.
-
+11. Able to play again after the game ends.
 
 ## Contributions
 
