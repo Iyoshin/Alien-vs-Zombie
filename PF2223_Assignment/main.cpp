@@ -13,7 +13,6 @@
 #include "board.cpp"
 #include <vector>
 #include <ctime>
-#include <stdlib.h>
 #include <iomanip> //for setw()
 #include <fstream>
 #include <string>
