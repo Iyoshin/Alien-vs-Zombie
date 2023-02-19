@@ -8,7 +8,7 @@ Please provide the YouTube link to your [Video Demo](https://youtube.com). In ca
 
 Provide instructions on how to compile your program, especially when it is non-trivial.
 
-g++ pf\*.cpp main.cpp -o (the file name you wanted to put)
+correct file path\ g++ pf\*.cpp main.cpp -o (the file name you wanted to put)
 
 to run type after compile ./(the file name you output).exe
 
