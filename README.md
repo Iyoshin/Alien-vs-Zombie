@@ -10,7 +10,7 @@ Provide instructions on how to compile your program, especially when it is non-t
 
 correct file path\ g++ pf\*.cpp main.cpp -o (the file name you wanted to put)
 
-to run type after compile ./(the file name you output).exe
+to run, type  ./(the file name you output).exe  after compile.
 
 ## User Manual
 
