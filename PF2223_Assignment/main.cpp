@@ -1164,7 +1164,6 @@ void loadFile(Alien *al, Board *bd, Zombie zo[], int *zombieCount, int *rows, in
     int alX, alY, alHp, alAtk;
     int zoX, zoY, zoHp, zoAtk, zoRange;
     char zoChar;
-    int k = 0;
     int i = 1;
     char bdChar;
 
