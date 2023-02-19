@@ -29,7 +29,7 @@ to run type after compile ./(the file name you output).exe
 4. After type in movement (e.g. up) command, the alien will move by itself but you will need to press any key to continue the program.     
 5. The alien will stop after hitting border, rock or zombie is not defaeted.
 6. After that, the zombie will move automatically, after moving, it will attack the alien within range, else it will do nothing and proceed to the next zombie if there are multiple.
-7. You may choose to save your game and load in the middle of the game. 
+7. You may choose to save your game and load in the middle of the game during Alien's turn. 
 8. The game will proceed until alien or all zombies are defeated or if you choose to quit by using the 'quit' command.
 9. When the game ends, you may play again or choose not to.
 
