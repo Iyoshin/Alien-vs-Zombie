@@ -1115,7 +1115,7 @@ void alienMoveRight(Alien *al, Board *bd, Zombie zo[], int zombieCount)
     }
 }
 
-void saveFile(Alien *al, Board *bd, Zombie zo[], int *zombieCount, int *rows, int *columns)
+void saveFile(Alien al, Board bd, Zombie zo[], int zombieCount, int rows, int columns)
 {
     string fileName;
     cout << "Enter the file name to save the current game (e.g. text1.txt), input (./0) to abort: ";
@@ -1130,17 +1130,17 @@ void saveFile(Alien *al, Board *bd, Zombie zo[], int *zombieCount, int *rows, in
     {
         ofstream outputFile(fileName, ios::out);
 
-        outputFile << setw(3) << *zombieCount << setw(3) << *rows << setw(3) << *columns << endl;                      // saving line for zombieCount, Row, Col, setw(3) for different section of information
-        outputFile << setw(3) << al->getX() << setw(3) << al->getY() << setw(3) << al->getHp() << setw(3) << al->getAtk() << endl; // alien x, y , hp , atk
-        for (int i = 0; i < *zombieCount; ++i)
+        outputFile << setw(3) << zombieCount << setw(3) << rows << setw(3) << columns << endl;                      // saving line for zombieCount, Row, Col, setw(3) for different section of information
+        outputFile << setw(3) << al.getX() << setw(3) << al.getY() << setw(3) << al.getHp() << setw(3) << al.getAtk() << endl; // alien x, y , hp , atk
+        for (int i = 0; i < zombieCount; ++i)
         {
             outputFile << setw(3) << zo[i].getZombieRow() << setw(3) << zo[i].getZombieCol() << setw(3) << zo[i].getZombieHp() << setw(3) << zo[i].getZombieAtk() << setw(1) << zo[i].getZombieRange() << setw(3) << zo[i].getZombieChar() << endl; // zombie x, y, hp, atk, range
         }
-        for (int i = 1; i <= bd->getCol(); ++i)
+        for (int i = 1; i <= bd.getCol(); ++i)
         {
-            for (int j = 1; j <= bd->getRow(); ++j)
+            for (int j = 1; j <= bd.getRow(); ++j)
             {
-                outputFile << setw(1) << bd->getObj(j, i); //board objects
+                outputFile << setw(1) << bd.getObj(j, i); //board objects
             }
 
             outputFile << endl;
@@ -1163,6 +1163,7 @@ void loadFile(Alien *al, Board *bd, Zombie zo[], int *zombieCount, int *rows, in
     int alX, alY, alHp, alAtk;
     int zoX, zoY, zoHp, zoAtk, zoRange;
     char zoChar;
+    int k = 0;
     int i = 1;
     char bdChar;
 
@@ -1359,7 +1360,7 @@ int main()
                 }
                 if (command == "save")
                 {
-                    saveFile(&al, &bd, zo, &zombieCount, &rows, &columns);
+                    saveFile(al, bd, zo, zombieCount, rows, columns);
                 }
                 if (command == "load")
                 {
@@ -1367,7 +1368,7 @@ int main()
                     cin >> ans;
                     if (ans == 'y' || ans == 'Y')
                     {
-                        saveFile(&al, &bd, zo, &zombieCount, &rows, &columns);
+                        saveFile(al, bd, zo, zombieCount, rows, columns);
                     }
                     pf::ClearScreen();
                     bd.displayBoard();
